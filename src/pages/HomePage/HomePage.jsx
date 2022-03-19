@@ -1,5 +1,7 @@
 import React from "react";
 
+import PluginList from "../../components/PluginList";
+
 import "./homePage.css";
 
 const HomePage = () => {
@@ -18,32 +20,7 @@ const HomePage = () => {
       <section className="plugins-container">
         <div className="container">
           <h5 className="plugin-text-header">Plugins</h5>
-          <div className="plugin-list">
-            <div className="plugin-item">
-              <div className="plugin-item-head"></div>
-              <div className="plugin-item-foot"></div>
-            </div>
-            <div className="plugin-item">
-              <div className="plugin-item-head"></div>
-              <div className="plugin-item-foot"></div>
-            </div>
-            <div className="plugin-item">
-              <div className="plugin-item-head"></div>
-              <div className="plugin-item-foot"></div>
-            </div>
-            <div className="plugin-item">
-              <div className="plugin-item-head"></div>
-              <div className="plugin-item-foot"></div>
-            </div>
-            <div className="plugin-item">
-              <div className="plugin-item-head"></div>
-              <div className="plugin-item-foot"></div>
-            </div>
-            <div className="plugin-item">
-              <div className="plugin-item-head"></div>
-              <div className="plugin-item-foot"></div>
-            </div>
-          </div>
+          <PluginList />
         </div>
       </section>
     </div>

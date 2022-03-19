@@ -1,8 +1,13 @@
+@font-face {
+  font-family: metapluginfont;
+  src: url("./assets/fonts/Lato-Regular.ttf");
+}
+
 body {
   margin: 0;
   background-color: #fffcf2;
   color: #fffcf2;
-  font-family: lato;
+  font-family: metapluginfont;
 }
 
 li {
@@ -50,4 +55,79 @@ li {
   column-gap: 50px;
   align-items: center;
   justify-content: center;
+}
+
+.plugin-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 30px;
+  row-gap: 25px;
+}
+
+.plugin-item {
+  width: 240px;
+  height: 300px;
+  padding: 2px;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  color: #252422;
+}
+
+.plugin-item-head {
+  height: 50%;
+  display: flex;
+  border: 1px solid #ccc5b9;
+  column-gap: 5px;
+  justify-content: center;
+}
+
+.plugin-image-container {
+  display: flex;
+  align-items: center;
+}
+
+.plugin-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  image-rendering: pixelated;
+}
+
+.plugin-rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 3px;
+}
+
+.plugin-about-container {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.plugin-about-header {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.plugin-about-author {
+  color: #75726c;
+}
+
+.plugin-author {
+  color: #0073aa;
+}
+
+.plugin-item-foot {
+  height: 50%;
+  border: 1px solid #ccc5b9;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  color: #252422;
+  padding-left: 10px;
 }
