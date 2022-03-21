@@ -1,6 +1,14 @@
 import React from "react";
+import ReactStars from "react-rating-stars-component";
 
+import PlaceHolder from "../../assets/img/slider.jpg";
+
+import "../../index.css";
 import "./pluginPage.css";
+
+const ratingChanged = (newRating) => {
+  console.log(newRating);
+};
 
 const PluginPage = () => {
   return (
@@ -28,10 +36,52 @@ const PluginPage = () => {
             <h4>Header</h4>
           </div>
           <div className="plugin-body">
-            <p>Body goes in here</p>
+            <div className="plugin-body-image-container">
+              <img
+                className="plugin-image plugin-body-image"
+                src={PlaceHolder}
+                alt="plugin"
+              />
+            </div>
+            <div className="plugin-body-description">
+              <span>
+                <span>Description</span>
+                <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+                elementum eu nisi vel vehicula. Ut ultricies condimentum metus
+                eu luctus.
+              </span>
+              <br />
+              <span className="plugin-info-container">
+                <span>Version:</span>
+                <span>Installation:</span>
+                <span>Last Update:</span>
+              </span>
+              <br />
+              <button className="plugin-download-button">Download</button>
+            </div>
           </div>
           <div className="plugin-footer">
-            <p>footer goes here</p>
+            <span className="plugin-rating">
+              <ReactStars
+                count={5}
+                onChange={ratingChanged}
+                size={20}
+                activeColor="#EB5E28"
+              />
+              ({55}) <span>See reviews</span>
+            </span>
+
+            <span>Details</span>
+
+            <span>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+              elementum eu nisi vel vehicula. Ut ultricies condimentum metus eu
+              luctus. Proin lacinia eu erat non malesuada. Aliquam est nulla,
+              lacinia quis neque eu, convallis maximus lorem. Donec venenatis
+              libero non lectus hendrerit tincidunt. Vestibulum vitae lacinia
+              libero, vitae laoreet urna. Vivamus mattis ut velit at accumsan.
+            </span>
           </div>
         </div>
       </section>

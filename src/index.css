@@ -131,3 +131,23 @@ li {
   color: #252422;
   padding-left: 10px;
 }
+
+.nav-search-section {
+  background-color: #403d39;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.search-bar-container {
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.plugin-search-input {
+  height: 30px;
+  border-radius: 4px;
+  border: none;
+}
