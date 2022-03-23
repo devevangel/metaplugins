@@ -74,6 +74,10 @@ li {
   color: #252422;
 }
 
+.plugin-item:hover {
+  cursor: pointer;
+}
+
 .plugin-item-head {
   height: 50%;
   display: flex;

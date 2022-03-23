@@ -53,9 +53,9 @@ const PluginPage = () => {
               </span>
               <br />
               <span className="plugin-info-container">
-                <span>Version:</span>
-                <span>Installation:</span>
-                <span>Last Update:</span>
+                <span>Version: 2.9.3</span>
+                <span>Installation: +60.000</span>
+                <span>Last Update: 10.01.2022</span>
               </span>
               <br />
               <button className="plugin-download-button">Download</button>

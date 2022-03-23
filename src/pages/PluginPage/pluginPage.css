@@ -99,6 +99,10 @@
   border: none;
 }
 
+.plugin-download-button:hover {
+  background-color: #ff6123;
+}
+
 .plugin-footer {
   display: flex;
   flex-direction: column;
