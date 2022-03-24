@@ -28,6 +28,7 @@ const PluginItem = () => {
             count={5}
             onChange={ratingChanged}
             size={20}
+            value={5}
             activeColor="#EB5E28"
           />
           ({55})

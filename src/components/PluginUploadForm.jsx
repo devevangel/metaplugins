@@ -16,12 +16,9 @@ const PluginUploadForm = () => {
           <label className="input-label">Version</label>
           <input type="text" placeholder="enter plugin version" required />
           <label className="input-label">Plugin</label>
-          <input
-            accept=".zip"
-            type="file"
-            placeholder="select plugin file"
-            required
-          />
+          <input accept=".zip" type="file" required />
+          <label className="input-label">Cover Image</label>
+          <input accept="image" type="file" required />
           <button className="plugin-download-button ">Enter</button>
         </form>
       </div>
