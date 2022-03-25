@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactStars from "react-rating-stars-component";
-
-import PlaceHolder from "../../assets/img/slider.jpg";
+import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 import "../../index.css";
 import "./pluginPage.css";
@@ -10,7 +10,30 @@ const ratingChanged = (newRating) => {
   console.log(newRating);
 };
 
-const PluginPage = () => {
+const PluginPage = ({ history }) => {
+  const [plugin, setPlugin] = useState({});
+
+  console.log(plugin.plugin);
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://pacific-depths-54362.herokuapp.com/api/v1/plugins/${history.location.state.id}`,
+        {
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        const singlePlugin = response.data.data.plugin;
+        setPlugin(singlePlugin);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <div>
       <section className="nav-search-section">
@@ -26,11 +49,9 @@ const PluginPage = () => {
       <section className="plugin-section-container">
         <div className="plugin-data-container">
           <span className="plugin-data-header-container">
-            <span className="plugin-about-header">
-              Slider - Responsive Image Slider for Wordpress
-            </span>
+            <span className="plugin-about-header">{plugin.name}</span>
             <br />
-            <span className="plugin-author">by Soliloquy</span>
+            <span className="plugin-author">{plugin.author}</span>
           </span>
           <div className="plugin-header-container">
             <h4>Header</h4>
@@ -39,7 +60,7 @@ const PluginPage = () => {
             <div className="plugin-body-image-container">
               <img
                 className="plugin-image plugin-body-image"
-                src={PlaceHolder}
+                src={plugin.image}
                 alt="plugin"
               />
             </div>
@@ -47,41 +68,63 @@ const PluginPage = () => {
               <span>
                 <span>Description</span>
                 <br />
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-                elementum eu nisi vel vehicula. Ut ultricies condimentum metus
-                eu luctus.
+                {plugin.description}
               </span>
               <br />
               <span className="plugin-info-container">
-                <span>Version: 2.9.3</span>
-                <span>Installation: +60.000</span>
-                <span>Last Update: 10.01.2022</span>
+                <span>Version: {plugin.version}</span>
+                <span>Installations: {plugin?.installations}</span>
+                <span>Last Update: {plugin?.lastUpdated}</span>
               </span>
               <br />
-              <button className="plugin-download-button">Download</button>
+              <button
+                className="plugin-download-button"
+                onClick={() => {
+                  axios
+                    .get(plugin.plugin, {
+                      responseType: "blob",
+                    })
+                    .then(({ data }) => {
+                      const downloadUrl = window.URL.createObjectURL(
+                        new Blob([data])
+                      );
+
+                      const link = document.createElement("a");
+
+                      link.href = downloadUrl;
+
+                      link.setAttribute("download", "file.zip"); //any other extension
+
+                      document.body.appendChild(link);
+
+                      link.click();
+
+                      link.remove();
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                    });
+                }}
+              >
+                Download
+              </button>
             </div>
           </div>
           <div className="plugin-footer">
             <span className="plugin-rating">
               <ReactStars
                 count={5}
+                value={plugin.rating}
                 onChange={ratingChanged}
                 size={20}
                 activeColor="#EB5E28"
               />
-              ({55}) <span>See reviews</span>
+              ({0}) <span>See reviews</span>
             </span>
 
             <span>Details</span>
 
-            <span>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-              elementum eu nisi vel vehicula. Ut ultricies condimentum metus eu
-              luctus. Proin lacinia eu erat non malesuada. Aliquam est nulla,
-              lacinia quis neque eu, convallis maximus lorem. Donec venenatis
-              libero non lectus hendrerit tincidunt. Vestibulum vitae lacinia
-              libero, vitae laoreet urna. Vivamus mattis ut velit at accumsan.
-            </span>
+            <span>{plugin.details}</span>
           </div>
         </div>
       </section>
@@ -89,4 +132,4 @@ const PluginPage = () => {
   );
 };
 
-export default PluginPage;
+export default withRouter(PluginPage);

@@ -16,7 +16,7 @@ const App = () => {
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route exact path="/plugin" component={PluginPage} />
+        <Route exact path="/plugin/:id" component={PluginPage} />
         <Route exact path="/admin" component={AdminPage} />
       </Switch>
     </div>

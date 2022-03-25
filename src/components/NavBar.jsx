@@ -7,7 +7,7 @@ const NavBar = ({ history }) => {
   const handleRouting = (type) => {
     if (type === "home") history.push("/");
 
-    if (type === "plugin") history.push("/plugin");
+    if (type === "plugin") history.push("/");
 
     if (type === "admin") history.push("/admin");
   };
@@ -20,7 +20,7 @@ const NavBar = ({ history }) => {
           handleRouting("home");
         }}
       >
-        <span>LOGO</span>
+        <span>MetaPlugins</span>
       </div>
 
       <ul className="nav-links-container">
