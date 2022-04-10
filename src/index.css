@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: metapluginfont;
   src: url("./assets/fonts/Lato-Regular.ttf");
@@ -5,7 +9,7 @@
 
 body {
   margin: 0;
-  background-color: #fffcf2;
+  background-color: #FFFFFF;
   color: #fffcf2;
   font-family: metapluginfont;
 }

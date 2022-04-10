@@ -17,12 +17,7 @@ const HomePage = () => {
           />
         </div>
       </section>
-      <section className="plugins-container">
-        <div className="container">
-          <h5 className="plugin-text-header">Plugins</h5>
-          <PluginList />
-        </div>
-      </section>
+      <PluginList />
     </div>
   );
 };

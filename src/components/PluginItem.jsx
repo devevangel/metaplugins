@@ -1,48 +1,43 @@
 import React from "react";
-import ReactStars from "react-rating-stars-component";
+// import ReactStars from "react-rating-stars-component";
 import TextTruncate from "react-text-truncate";
 import { withRouter } from "react-router-dom";
 
 import "../index.css";
 
-const ratingChanged = (newRating) => {
-  console.log(newRating);
-};
+// const ratingChanged = (newRating) => {
+//   console.log(newRating);
+// };
 
 const PluginItem = ({ plugin, history }) => {
   return (
-    <div
-      className="plugin-item"
-      onClick={() => {
-        history.push({
-          pathname: `/plugin/${plugin._id}`,
-          state: { id: plugin._id },
-        });
-      }}
-    >
-      <div className="plugin-item-head">
-        <div className="plugin-image-container">
-          <img className="plugin-image" src={plugin.image} alt="plugin" />
-        </div>
-        <div className="plugin-about-container">
-          <span className="plugin-about-header">{plugin.name}</span>
-          <span className="plugin-about-author">{plugin.author}</span>
-        </div>
+    <div className="group relative bg-white border border-gray-200 rounded-lg flex flex-col overflow-hidden">
+      <div className="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
+        <img
+          src={plugin?.image}
+          alt="item"
+          className="w-full h-full object-center object-cover sm:w-full sm:h-full"
+        />
       </div>
-      <div className="plugin-item-foot">
-        <span className="plugin-rating">
-          <ReactStars
-            count={5}
-            onChange={ratingChanged}
-            size={20}
-            value={plugin.rating}
-            activeColor="#EB5E28"
-          />
-          ({55})
-        </span>
-        <TextTruncate line={3} text={plugin.description} />
-        <span>+60.000 installation</span>
-        <span>Version {plugin.version}</span>
+      <div className="flex-1 p-4 space-y-2 flex flex-col">
+        <h3 className="text-sm font-medium text-gray-900">
+          <a href={plugin?.href}>
+            <span aria-hidden="true" className="absolute inset-0" />#
+            {plugin?.name}
+          </a>
+        </h3>
+        <p className="text-sm text-gray-500">
+          <TextTruncate line={4} text={plugin.description} />
+        </p>
+        <div className="flex-1 flex flex-col justify-end">
+          <p className="text-sm italic text-gray-500">{plugin?.options}</p>
+          <p className="text-base font-medium text-gray-900">
+            Version: {plugin.version}
+          </p>
+          <p className="text-base font-medium text-gray-900">
+            Author: {plugin?.author}
+          </p>
+        </div>
       </div>
     </div>
   );
