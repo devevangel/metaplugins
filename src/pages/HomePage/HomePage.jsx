@@ -1,22 +1,14 @@
 import React from "react";
 
 import PluginList from "../../components/PluginList";
+import Header from "../../components/Header";
 
 import "./homePage.css";
 
 const HomePage = () => {
   return (
     <div className="home-page-container">
-      <section className="search-section">
-        <div className="container">
-          <h4 className="search-header-text">Search For Plugins</h4>
-          <input
-            className="plugin-search"
-            type="text"
-            placeholder="Enter a plugin name"
-          />
-        </div>
-      </section>
+      <Header />
       <PluginList />
     </div>
   );

@@ -9,10 +9,11 @@
 
 body {
   margin: 0;
-  background-color: #FFFFFF;
   color: #fffcf2;
   font-family: metapluginfont;
 }
+
+
 
 li {
   height: max-content;
@@ -146,11 +147,8 @@ li {
 }
 
 .nav-search-section {
-  background-color: #403d39;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
+
 }
 
 .search-bar-container {
