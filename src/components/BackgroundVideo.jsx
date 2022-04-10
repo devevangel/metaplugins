@@ -1,11 +1,12 @@
 import React from "react";
 
-import video from "../assets/video/video_bg.mp4";
-
 const BackgroundVideo = () => {
   return (
     <video autoPlay muted loop id="myVideo">
-      <source src={video} type="video/mp4" />
+      <source
+        src="https://res.cloudinary.com/devevangel/video/upload/v1649634453/metaplugin/assets/video_bg_lidnue.mp4"
+        type="video/mp4"
+      />
     </video>
   );
 };
