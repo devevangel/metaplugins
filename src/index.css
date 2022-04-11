@@ -24,6 +24,10 @@ li {
   padding: 10px;
 }
 
+.logo {
+  width: 250px;
+}
+
 .link {
   font-weight: 600;
   font-size: larger;

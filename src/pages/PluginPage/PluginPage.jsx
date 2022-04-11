@@ -37,24 +37,15 @@ const PluginPage = ({ history }) => {
           </div>
 
           <section aria-labelledby="information-heading" className="mt-4">
-            <div className="flex items-center">
-              <div className="flex items-center">
-                <div className="flex items-center">
-                  <ReactStars
-                    count={5}
-                    className="h-5 w-5 flex-shrink-0 text-gray-300"
-                  />
-                </div>
-              </div>
-            </div>
-
             <div className="mt-4 space-y-6">
-              <p className="text-base text-gray-500">{plugin?.description}</p>
+              <div className="text-base text-gray-500">
+                {plugin?.description}
+              </div>
             </div>
 
             <div className="mt-6 flex items-center">
               <p className="text-sm text-gray-500">
-                Version: {plugin?.version}
+                Version(beta): {plugin?.version}
               </p>
             </div>
             <div className="mt-6 flex items-center">

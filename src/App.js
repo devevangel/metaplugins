@@ -6,12 +6,13 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import PluginPage from "./pages/PluginPage/PluginPage";
 import AdminPage from "./pages/AdminPage/AdminPage";
+import Footer from "./components/Footer";
+import NavBar from "./components/NavBar";
 // import BackgroundVideo from "./components/BackgroundVideo";
 // <BackgroundVideo />
 // <div className="overlay" />
 
 // Components
-import NavBar from "./components/NavBar";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route exact path="/plugin/:id" component={PluginPage} />
         <Route exact path="/admin" component={AdminPage} />
       </Switch>
+      <Footer />
     </div>
   );
 };
