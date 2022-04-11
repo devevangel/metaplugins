@@ -14,7 +14,10 @@ const PluginItem = ({ plugin, history }) => {
     <div
       className="group relative bg-grey border border-gray-200 flex flex-col overflow-hidden"
       onClick={() => {
-        console.log("reroute");
+        history.push({
+          pathname: `/plugin/${plugin._id}`,
+          state: { id: plugin._id },
+        });
       }}
     >
       <div className="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">

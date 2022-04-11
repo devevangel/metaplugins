@@ -1,19 +1,10 @@
 import React, { useState, useEffect } from "react";
-import ReactStars from "react-rating-stars-component";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
-
-import "../../index.css";
-import "./pluginPage.css";
-
-const ratingChanged = (newRating) => {
-  console.log(newRating);
-};
+import ReactStars from "react-rating-stars-component";
 
 const PluginPage = ({ history }) => {
   const [plugin, setPlugin] = useState({});
-
-  console.log(plugin.plugin);
 
   useEffect(() => {
     axios
@@ -35,99 +26,100 @@ const PluginPage = ({ history }) => {
   }, []);
 
   return (
-    <div>
-      <section className="nav-search-section">
-        <div className="search-bar-container">
-          <input
-            className="plugin-search-input"
-            type="text"
-            placeholder="Search for a plugin"
-          />
+    <div className="bg-white">
+      <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-x-8">
+        {/* Product details */}
+        <div className="lg:max-w-lg lg:self-end">
+          <div className="mt-4">
+            <h1 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              {plugin?.name}
+            </h1>
+          </div>
+
+          <section aria-labelledby="information-heading" className="mt-4">
+            <div className="flex items-center">
+              <div className="flex items-center">
+                <div className="flex items-center">
+                  <ReactStars
+                    count={5}
+                    className="h-5 w-5 flex-shrink-0 text-gray-300"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-4 space-y-6">
+              <p className="text-base text-gray-500">{plugin?.description}</p>
+            </div>
+
+            <div className="mt-6 flex items-center">
+              <p className="text-sm text-gray-500">
+                Version: {plugin?.version}
+              </p>
+            </div>
+            <div className="mt-6 flex items-center">
+              <p className="text-sm text-gray-500">Author: {plugin?.author}</p>
+            </div>
+          </section>
         </div>
-      </section>
 
-      <section className="plugin-section-container">
-        <div className="plugin-data-container">
-          <span className="plugin-data-header-container">
-            <span className="plugin-about-header">{plugin.name}</span>
-            <br />
-            <span className="plugin-author">{plugin.author}</span>
-          </span>
-          <div className="plugin-header-container">
-            <h4>Header</h4>
-          </div>
-          <div className="plugin-body">
-            <div className="plugin-body-image-container">
-              <img
-                className="plugin-image plugin-body-image"
-                src={plugin.image}
-                alt="plugin"
-              />
-            </div>
-            <div className="plugin-body-description">
-              <span>
-                <span>Description</span>
-                <br />
-                {plugin.description}
-              </span>
-              <br />
-              <span className="plugin-info-container">
-                <span>Version: {plugin.version}</span>
-                <span>Installations: {plugin?.installations}</span>
-                <span>Last Update: {plugin?.lastUpdated}</span>
-              </span>
-              <br />
-              <button
-                className="plugin-download-button"
-                onClick={() => {
-                  axios
-                    .get(plugin.plugin, {
-                      responseType: "blob",
-                    })
-                    .then(({ data }) => {
-                      const downloadUrl = window.URL.createObjectURL(
-                        new Blob([data])
-                      );
-
-                      const link = document.createElement("a");
-
-                      link.href = downloadUrl;
-
-                      link.setAttribute("download", "file.zip"); //any other extension
-
-                      document.body.appendChild(link);
-
-                      link.click();
-
-                      link.remove();
-                    })
-                    .catch((error) => {
-                      console.log(error);
-                    });
-                }}
-              >
-                Download
-              </button>
-            </div>
-          </div>
-          <div className="plugin-footer">
-            <span className="plugin-rating">
-              <ReactStars
-                count={5}
-                value={plugin.rating}
-                onChange={ratingChanged}
-                size={20}
-                activeColor="#EB5E28"
-              />
-              ({0}) <span>See reviews</span>
-            </span>
-
-            <span>Details</span>
-
-            <span>{plugin.details}</span>
+        {/* Product image */}
+        <div className="mt-10 lg:mt-0 lg:col-start-2 lg:row-span-2 lg:self-center">
+          <div className="aspect-w-1 aspect-h-1 rounded-lg overflow-hidden">
+            <img
+              src={plugin?.image}
+              alt="plugin img"
+              className="w-full h-full object-center object-cover"
+            />
           </div>
         </div>
-      </section>
+
+        {/* Product form */}
+        <div className="mt-10 lg:max-w-lg lg:col-start-1 lg:row-start-2 lg:self-start">
+          <section aria-labelledby="options-heading">
+            <form>
+              <div className="sm:flex sm:justify-between">
+                <div className="mt-1 grid grid-cols-1 gap-4 sm:grid-cols-2"></div>
+              </div>
+
+              <div className="mt-10">
+                <button
+                  className="w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    axios
+                      .get(plugin.plugin, {
+                        responseType: "blob",
+                      })
+                      .then(({ data }) => {
+                        const downloadUrl = window.URL.createObjectURL(
+                          new Blob([data])
+                        );
+
+                        const link = document.createElement("a");
+
+                        link.href = downloadUrl;
+
+                        link.setAttribute("download", "file.zip"); //any other extension
+
+                        document.body.appendChild(link);
+
+                        link.click();
+
+                        link.remove();
+                      })
+                      .catch((error) => {
+                        console.log(error);
+                      });
+                  }}
+                >
+                  Download plugin
+                </button>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
     </div>
   );
 };
