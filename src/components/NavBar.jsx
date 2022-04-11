@@ -14,33 +14,34 @@ const NavBar = ({ history }) => {
 
   return (
     <nav className="nav-container">
-      <ul className="nav-links-container">
-        <li
+      <div className="nav-inner">
+        <div
           className="link logo"
           onClick={() => {
             handleRouting("home");
           }}
         >
           <img src={logo} alt="logo" />
-        </li>
-
-        <li
-          className="link"
-          onClick={() => {
-            handleRouting("admin");
-          }}
-        >
-          Admin
-        </li>
-        <li
-          className="link"
-          onClick={() => {
-            handleRouting("admin");
-          }}
-        >
-          Upload Plugin
-        </li>
-      </ul>
+        </div>
+        <ul className="nav-links-container">
+          <li
+            className="link"
+            onClick={() => {
+              handleRouting("admin");
+            }}
+          >
+            Admin
+          </li>
+          <li
+            className="link"
+            onClick={() => {
+              handleRouting("admin");
+            }}
+          >
+            Upload Plugin
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 };
