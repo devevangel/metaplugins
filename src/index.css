@@ -9,9 +9,12 @@
 
 body {
   margin: 0;
-  color: #fffcf2;
+  color: black;
+  background-color: white;
   font-family: metapluginfont;
 }
+
+
 
 
 
@@ -21,20 +24,16 @@ li {
   padding: 10px;
 }
 
+.link {
+  font-weight: 600;
+  font-size: larger;
+}
+
 .link:hover {
-  background-color: #333230;
+  color: #92908d;
   cursor: pointer;
 }
 
-.upload-btn {
-  background-color: #eb5e28;
-  border-radius: 4px;
-}
-
-.upload-btn:hover {
-  cursor: pointer;
-  background-color: #e95115;
-}
 
 .nav-container {
   background-color: transparent;
@@ -61,7 +60,8 @@ li {
 .nav-links-container {
   list-style: none;
   display: flex;
-  column-gap: 50px;
+  column-gap: 80px;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }

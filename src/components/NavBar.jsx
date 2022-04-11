@@ -14,16 +14,15 @@ const NavBar = ({ history }) => {
 
   return (
     <nav className="nav-container">
-      <div
-        className="nav-logo-container"
-        onClick={() => {
-          handleRouting("home");
-        }}
-      >
-        <span>MetaPlugins</span>
-      </div>
-
       <ul className="nav-links-container">
+        <li
+          className="link"
+          onClick={() => {
+            handleRouting("home");
+          }}
+        >
+          MetaPlugins
+        </li>
         <li
           className="link"
           onClick={() => {
@@ -41,7 +40,7 @@ const NavBar = ({ history }) => {
           Admin
         </li>
         <li
-          className="upload-btn"
+          className="link"
           onClick={() => {
             handleRouting("admin");
           }}

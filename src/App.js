@@ -6,7 +6,9 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import PluginPage from "./pages/PluginPage/PluginPage";
 import AdminPage from "./pages/AdminPage/AdminPage";
-import BackgroundVideo from "./components/BackgroundVideo";
+// import BackgroundVideo from "./components/BackgroundVideo";
+// <BackgroundVideo />
+// <div className="overlay" />
 
 // Components
 import NavBar from "./components/NavBar";
@@ -14,7 +16,6 @@ import NavBar from "./components/NavBar";
 const App = () => {
   return (
     <div className="App">
-      <BackgroundVideo />
       <NavBar />
       <Switch>
         <Route exact path="/" component={HomePage} />

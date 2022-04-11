@@ -11,7 +11,12 @@ import "../index.css";
 
 const PluginItem = ({ plugin, history }) => {
   return (
-    <div className="group relative bg-transparent border border-gray-200 rounded-lg flex flex-col overflow-hidden">
+    <div
+      className="group relative bg-grey border border-gray-200 flex flex-col overflow-hidden"
+      onClick={() => {
+        console.log("reroute");
+      }}
+    >
       <div className="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75 sm:aspect-none sm:h-96">
         <img
           src={plugin?.image}
@@ -20,21 +25,21 @@ const PluginItem = ({ plugin, history }) => {
         />
       </div>
       <div className="flex-1 p-4 space-y-2 flex flex-col">
-        <h3 className="text-sm font-medium text-white">
+        <h3 className="font-medium text-black text-2xl">
           <a href={plugin?.href}>
             <span aria-hidden="true" className="absolute inset-0" />#
             {plugin?.name}
           </a>
         </h3>
-        <p className="text-sm text-white">
+        <p className="text-sm text-black">
           <TextTruncate line={4} text={plugin.description} />
         </p>
         <div className="flex-1 flex flex-col justify-end">
-          <p className="text-sm italic text-white">{plugin?.options}</p>
-          <p className="text-base font-medium text-white">
+          <p className="text-sm italic text-black">{plugin?.options}</p>
+          <p className="text-base font-medium text-black">
             Version: {plugin.version}
           </p>
-          <p className="text-base font-medium text-white">
+          <p className="text-base font-medium text-black">
             Author: {plugin?.author}
           </p>
         </div>
