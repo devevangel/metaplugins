@@ -40,7 +40,7 @@ const PluginItem = ({ plugin, history }) => {
         <div className="flex-1 flex flex-col justify-end">
           <p className="text-sm italic text-black">{plugin?.options}</p>
           <p className="text-base font-medium text-black">
-            Version: {plugin.version}
+            Version: {plugin.version} (beta)
           </p>
           <p className="text-base font-medium text-black">
             Author: {plugin?.author}

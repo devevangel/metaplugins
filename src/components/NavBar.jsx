@@ -10,10 +10,14 @@ const NavBar = ({ history }) => {
     if (type === "home") history.push("/");
 
     if (type === "admin") history.push("/admin");
+
+    if (type === "contact") history.push("/contact");
+
+    if (type === "about") history.push("/about");
   };
 
   return (
-    <nav className="nav-container">
+    <nav className="max-w-2xl mx-auto sm:py-5 sm:px-6 lg:max-w-7xl lg:px-8">
       <div className="nav-inner">
         <div
           className="link logo"
@@ -39,6 +43,22 @@ const NavBar = ({ history }) => {
             }}
           >
             Upload Plugin
+          </li>
+          <li
+            className="link"
+            onClick={() => {
+              handleRouting("contact");
+            }}
+          >
+            Contact Us
+          </li>
+          <li
+            className="link"
+            onClick={() => {
+              handleRouting("about");
+            }}
+          >
+            About Us
           </li>
         </ul>
       </div>
