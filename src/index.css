@@ -22,7 +22,7 @@ li {
 }
 
 .logo {
-  width: 250px;
+  width: 150px;
 }
 
 .link {
@@ -78,8 +78,6 @@ li {
 }
 
 
-
-
 .nav-links-container {
   display: flex;
   align-items: center;
@@ -88,7 +86,6 @@ li {
 }
 
 .nav-logo-container {
-
   display: flex;
   justify-content: center;
 }
@@ -96,7 +93,6 @@ li {
 .nav-logo-container {
   cursor: pointer;
 }
-
 
 
 .plugin-list {
